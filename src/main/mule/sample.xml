@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="sampleFlow" doc:id="ea7e5ea2-7120-4d1d-a346-4d139b0fc4e0" >
+		<scheduler doc:name="Scheduler" doc:id="93b3a883-459c-4217-8f65-6ac04fd21af8" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="2" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<set-variable value="NORA" doc:name="Set Variable" doc:id="0751e1a0-d13c-44da-9ae2-c5e4437e32c5" variableName="envVar"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="424c7fdf-9917-4dad-a3e6-4c3323a8b960" />
+		<ee:transform doc:name="Transform Message" doc:id="cc15811b-7e38-456a-aafd-8704ab1fd625" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

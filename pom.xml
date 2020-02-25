@@ -39,7 +39,7 @@
 		              <username>${anypoint.username}</username>
 		            <password>${anypoint.password}</password> 
 		            <environment>${anypoint.env}</environment>
-		            <applicationName>mule-jenkins-test</applicationName>  
+		            <applicationName>sample</applicationName>  
 		            <properties>
 		                <key>value</key>
 		            </properties>
